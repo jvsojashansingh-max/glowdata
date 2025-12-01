@@ -3111,9 +3111,22 @@
 
         /* PERFORMANCE MODE badge */
         .perf-toggle {
-            background: #111827 !important;
-            color: #e5e7eb !important;
-            border-radius: 999px !important;
+            background: #1f2937 !important;
+            color: #9ca3af !important;
+            border-radius: 8px !important;
+            border: 1px solid #374151 !important;
+            width: 100%;
+            text-align: left;
+            padding: 10px 14px !important;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px !important;
+        }
+
+        .perf-toggle:hover {
+            background: #374151 !important;
+            color: #f3f4f6 !important;
         }
 
         /* ============================================
@@ -3397,10 +3410,12 @@
 
             /* Totals box: sticky at bottom of screen might feel native-like */
             .totals-box {
-                position: sticky;
-                bottom: 0;
-                z-index: 10;
+                position: static;
                 margin-top: 12px;
+                width: 100%;
+                box-shadow: none;
+                border-top: 1px solid #374151;
+                padding-top: 12px;
             }
 
             /* Login overlay: center on small screens */
@@ -3464,8 +3479,7 @@
 
     <div class="connection-status disconnected" id="connectionStatus">🔴 Offline</div>
     <div class="pending-badge" id="pendingSyncBadge" aria-live="polite" title="Pending changes waiting for sync"></div>
-    <button class="perf-toggle" id="perfToggle" type="button" onclick="togglePerformanceMode()"
-        title="Reduce animations and heavy effects">⚡ Performance</button>
+
 
     <div id="loginOverlay">
         <div class="login-card">
@@ -3511,6 +3525,9 @@
             <button class="tab-button" data-tab-id="users" onclick="switchMainTab('users', this)">👥 Users &
                 Roles</button>
             <div style="flex: 1;"></div>
+            <button class="perf-toggle" id="perfToggle" type="button" onclick="togglePerformanceMode()"
+                title="Reduce animations and heavy effects" style="margin-top: 10px; margin-bottom: 10px;">⚡
+                Performance</button>
             <button class="tab-button" onclick="App.auth.logout()" style="margin-top: 20px;">🚪 Logout</button>
         </div>
 
